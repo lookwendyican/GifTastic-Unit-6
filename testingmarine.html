@@ -67,7 +67,7 @@
                     console.log(queryURL);
 
                     // console.log(response);
-                    // console.log(response.data[i]);
+                    // console.log(response.data[i].fixed_height.url);
                     // console.log(response.data[i].rating);
                     //console.log(response.data[i].images.fixed_height_still);
 
@@ -75,7 +75,7 @@
                     var results = response.data;
                     console.log(results[1].images.fixed_height.url);
                     console.log(results[0].rating);
-                    console.log(results[2].images.fixed_height_still);
+                    console.log(results[2].images.fixed_height_still.url);
 
                     // Looping through each result item
                     for (var i = 0; i < results.length; i++) {
@@ -86,17 +86,20 @@
                         // Creating a paragraph tag with the result item's rating
                         var p = $("<p>").text("Rating: " + results[0].rating);
 
-                        // // Creating and storing an image tag
-                        // var marineAnimalImage = $("<img>");
-                        // // Setting the src attribute of the image to a property pulled off the result item
-                        // marineAnimalImage.attr("src", results[i].images.fixed_height.url);
+                        // Creating and storing an image tag
+                        var marineAnimalImage = $("<img>");
+                        // Setting the src attribute of the image to a property pulled off the result item
+                        marineAnimalImage.attr("src", results[i].images.fixed_height.url);
 
-                        // // Appending the paragraph and image tag to the marineAnimalDiv
+                        var mLStillImage =results[i].images.fixed_height_still.url;
+                        marineAnimalImage.attr("data-still", results[i].images.fixed_height_still.url);
+
+                        // Appending the paragraph and image tag to the marineAnimalDiv
                         marineAnimalDiv.append(p);
-                        // marineAnimalDiv.append(marineAnimalImage);
+                        marineAnimalDiv.append(marineAnimalImage);
 
-                        // // Prependng the marineAnimalDiv to the HTML page in the "#gifs-appear-here" div
-                        // $("#gifs-appear-here").prepend(marineAnimalDiv);
+                        // Prependng the marineAnimalDiv to the HTML page in the "#gifs-appear-here" div
+                        $("marineLife-view").prepend(marineAnimalDiv);
                     }
 
                 })  //End of AJAX/then function 
