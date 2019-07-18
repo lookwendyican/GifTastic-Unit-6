@@ -2,65 +2,175 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>Animal Buttons</title>
+    <meta charset="UTF-8">
+    <title>Marine Life Gifs</title>
+
+    <link href="assets/css/reset.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="assets/css/style.css" type="text/css" rel="stylesheet">
+
 </head>
 
 <body>
-  <button data-animal="cat">meow</button>
-  <button data-animal="dog">woof</button>
-  <button data-animal="bird">chirp</button>
-  <div id="gifs-appear-here">
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript">
-    // Adding click event listen listener to all buttons
-    $("button").on("click", function() {
-      // Grabbing and storing the data-animal property value from the button
-      var animal = $(this).attr("data-animal");
 
-      // Constructing a queryURL using the animal name
-      var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-        animal + "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=10";
+    <!-- Rendered Buttons will get Dumped Here   -->
+    <div class="row">
+        <h1>Marine Animal Gifs</h1>
+        <div id="buttons-view" class="btn btn-lg"></div>
+    </div>
+    <form id="marineLife-form">
+        <label for="marineLife-input">Add your own choice of marine life animal!</label>
+        <input type="text" id="marineLife-input">
+        <br>
 
-      // Performing an AJAX request with the queryURL
-      $.ajax({
-        url: queryURL,
-        method: "GET"
-      })
-        // After data comes back from the request
-        .then(function(response) {
-          console.log(queryURL);
+        <!-- Button triggers new marine life animals to be added -->
+        <input id="add-marineLife" type="submit" value="Add your own marine animal!">
+    </form>
 
-          console.log(response);
-          // storing the data from the AJAX request in the results variable
-          var results = response.data;
+    <!-- New marine life animals will Get Dumped Here -->
+    <div id="marineLife-view"></div>
 
-          // Looping through each result item
-          for (var i = 0; i < results.length; i++) {
 
-            // Creating and storing a div tag
-            var animalDiv = $("<div>");
 
-            // Creating a paragraph tag with the result item's rating
-            var p = $("<p>").text("Rating: " + results[i].rating);
 
-            // Creating and storing an image tag
-            var animalImage = $("<img>");
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src=assets/javascript/app.js> </script>
+
+    <script>
+
+    //     // JavaScript function that wraps everything (TAKE FROM # 14 DYNAMIC ELELEMNTS SOULTIONS)
+    //     $(document).ready(function () {
+
+    //         var marineAnimalsArr = ["walrus", "orca", "sea lion", "octopus", "starfish", "manatee", "anemone", "humpback whale", "sea turtle", "jelly fish", "manta ray", "spinner dolphins"];
+
+    //         console.log(marineAnimalsArr);
+    //         // Add click event listen listener to all buttons
+
+
+
+    //         // Grab and store the marineLife property value from the button
+    //         function getMarineLife () {
+
+
+    //         var marineLife = $(this).attr("data-name");
+    //         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + marineLife + "&api_key=H7AMXuqlVS2NrgKHKo7Mzsdf3kZeFA8x&limit=10";
+
+
+
+    //         // Perform an AJAX request with the queryURL
+    //         $.ajax({
+    //             url: queryURL,
+    //             method: "GET"
+    //         })
+    //             .then(function (response) {
+    //                 console.log(queryURL);
+
+    //                 // console.log(response);
+    //                 // console.log(response.data[i].images.fixed_height.url);
+    //                 // console.log(response.data[i].rating);
+    //                 // console.log(response.data[i].images.fixed_height_still.url);
+
+    //                     // storing the data from the AJAX request in the results variable
+    //                     var results = response.data;
+    //                     console.log(results);
+
+    //                     // Looping through each result item
+    //                     for (var i = 0; i < results.length; i++) {
+
+    //                     // Creating and storing a div tag
+    //                     var marineAnimalDiv = $("<div>");
+
+    //                     // Creating a paragraph tag with the result item's rating
+    //                     var p = $("<p>").text("Rating: " + results[i].rating);
+
+    //                     // Creating and storing an image tag
+    //                     var marineAnimalImage = $("<img>");
+    //                     // Setting the src attribute of the image to a property pulled off the result item
+    //                     marineAnimalImage.attr("src", results[i].images.fixed_height.url);
+    //                     marineAnimalImage.attr("data-still", results[i].images.fixed_height_still.url);
+    //                     marineAnimalImage.attr("data-animate", results[i].images.fixed_height.url);
+    //                     marineAnimalImage.attr("data-state", "animate");
+    //                     marineAnimalImage.addClass("makelive");
+
+    //                     // Appending the paragraph and image tag to the marineAnimalDiv
+    //                     marineAnimalDiv.append(p);
+    //                     marineAnimalDiv.append(marineAnimalImage);
+
+    //                     // Prependng the marineAnimalDiv to the HTML page in the "#gifs-appear-here" div
+    //                     $("#marineLife-view").prepend(marineAnimalDiv);
+    //                     }
+
+    //             })  //End of AJAX/then function 
+    //         } //End of getMarinLife function
+
+    //         // Function for displaying Marine Animals data
+    //         function renderButtons() {
+
+    //             // Deleting the Marine Animals prior to adding new animals
+    //             // (this is necessary otherwise you will have repeat buttons)
+    //             $("#buttons-view").empty();
+
+    //             // Looping through the array of marine animals
+    //             for (var i = 0; i < marineAnimalsArr.length; i++) {
+
+    //                 // Then dynamicaly generate buttons for each marine animal in the array
+    //                 var a = $("<button>");
+    //                 // Adding a class of marineAnimal-btn to our button
+    //                 a.addClass("marineAnimal-btn");
+    //                 // Adding a data-attribute
+    //                 a.attr("data-name", marineAnimalsArr[i]);
+    //                 // Providing the initial button text
+    //                 a.text(marineAnimalsArr[i]);
+    //                 // Adding the button to the buttons-view div
+    //                 $("#buttons-view").append(a);
+    //             }
+    //         }
+
+    //         // This function handles events where a marine animal button is clicked
+    //         $("#add-marineLife").on("click", function (event) {
+    //             event.preventDefault();
+    //             // This line grabs the input from the textbox
+    //             var marineLife = $("#marineLife-input").val().trim();
+
+    //             // Adding marineLife from the textbox to our array
+    //             marineAnimalsArr.push(marineLife);
+
+    //             // Calling renderButtons which handles the processing of our marineLife array
+    //             renderButtons();
+    //         });
+
+    //         $(document).on("click", 'img', function () {
+    //             // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
+    //             var state = $(this).attr("data-state");
+    //             console.log(state)
+    //             // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+    //             // Then, set the image's data-state to animate
+    //             // Else set src to the data-still value
+    //             if (state === "still") {
+    //                 $(this).attr("src", $(this).attr("data-animate"));
+    //                 $(this).attr("data-state", "animate");
+    //             } else {
+    //                 $(this).attr("src", $(this).attr("data-still"));
+    //                 $(this).attr("data-state", "still");
+    //             }
+    //         });
+
+    //         // Adding a click event listener to all elements with a class of "marineLife-btn"
+    //         $(document).on("click", ".marineAnimal-btn", getMarineLife);
+   
+    //         // Calling the renderButtons function to display the intial buttons
+    //         renderButtons();
+
           
-            // Setting the src attribute of the image to a property pulled off the result item
-            animalImage.attr("src", results[i].images.fixed_height.url);
 
-            // Appending the paragraph and image tag to the animalDiv
-            animalDiv.append(p);
-            animalDiv.append(animalImage);
+    //     });  //End of Doc ready   
 
-            // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
-            $("#gifs-appear-here").prepend(animalDiv);
-          }
-        });
-    });
-  </script>
+    // </script>
+
 </body>
 
 </html>
