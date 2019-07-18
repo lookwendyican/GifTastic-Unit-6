@@ -7,6 +7,7 @@
 
     <link href="assets/css/reset.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
     <link href="assets/css/style.css" type="text/css" rel="stylesheet">
 
 </head>
@@ -15,17 +16,25 @@
 
     <!-- Rendered Buttons will get Dumped Here   -->
     <div class="row">
+            <div class="col">
         <h1>Marine Animal Gifs</h1>
         <div id="buttons-view" class="btn btn-lg"></div>
     </div>
-    <form id="marineLife-form">
-        <label for="marineLife-input">Add your own choice of marine life animal!</label>
-        <input type="text" id="marineLife-input">
-        <br>
+</div>
 
-        <!-- Button triggers new marine life animals to be added -->
-        <input id="add-marineLife" type="submit" value="Add your own marine animal!">
-    </form>
+    <div class="row">
+            <div class="col">
+        <form id="marineLife-form">
+            <label for="marineLife-input">Add your own choice of marine life animal!</label>
+            <input type="text" id="marineLife-input">
+            <br>
+
+            <!-- Button triggers new marine life animals to be added -->
+            <input id="add-marineLife" type="submit" value="Add your own marine animal!">
+        </form>
+    </div>
+</div>
+
 
     <!-- New marine life animals will Get Dumped Here -->
     <div id="marineLife-view"></div>

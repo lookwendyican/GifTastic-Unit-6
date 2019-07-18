@@ -2,7 +2,7 @@
 // JavaScript function that wraps everything (TAKE FROM # 14 DYNAMIC ELELEMNTS SOULTIONS)
 $(document).ready(function () {
 
-    var marineAnimalsArr = ["walrus", "orca", "sea lion", "octopus", "starfish", "manatee", "anemone", "humpback whale", "sea turtle", "jelly fish", "manta ray", "spinner dolphins"];
+    var marineAnimalsArr = ["Walrus", "Orca", "Sea Lion", "Octopus", "Starfish", "Manatee", "Anemone", "Humpback Whale", "Sea Turtle", "Jelly Fish", "Manta Ray", "Spinner Dolphins"];
 
     console.log(marineAnimalsArr);
     // Add click event listen listener to all buttons
@@ -77,7 +77,7 @@ $(document).ready(function () {
             // Then dynamicaly generate buttons for each marine animal in the array
             var a = $("<button>");
             // Adding a class of marineAnimal-btn to our button
-            a.addClass("marineAnimal-btn button4");
+            a.addClass("marineAnimal-btn");
             // Adding a data-attribute
             a.attr("data-name", marineAnimalsArr[i]);
             // Providing the initial button text
