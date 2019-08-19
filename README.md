@@ -1,4 +1,4 @@
-#Marine Life Giphy
+# Marine Life Giphy
 
 The Marine Life Giphy app in the Giftastic Unit is a dymanically created web page that populates with either pre-programed gif buttons,  or allows user to crete a new button with a marine animal of users choice.  
 
