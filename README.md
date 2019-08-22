@@ -6,6 +6,9 @@ The buttons,  pre-programed or newly created, consist of a keyword, which is the
 
 In addition,   every gif consists of an animated gif image and a still image.  User is able to click on the image and either pause it or animate it.   
 
+### Link
+https://lookwendyican.github.io/GifTastic-Unit-6/
+
 ### Built with 
 * HTML5
 * CSS3
